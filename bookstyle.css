@@ -1,0 +1,279 @@
+/* Basic styling for the generated book HTML */
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.book-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cover-image {
+  width: 100%;
+  max-width: 400px; /* Adjust as needed */
+  display: block;
+  margin: 20px auto;
+}
+
+.book-cover {
+  width: 100%;
+  max-width: 170mm; /* A4 width minus margins (210mm - 2*20mm) */
+  height: auto;
+  display: block;
+  margin: 0 auto 20px auto;
+  box-sizing: border-box;
+}
+
+#table-of-contents {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  background-color: #f9f9f9;
+}
+
+#table-of-contents h2 {
+  margin-top: 0;
+}
+
+#table-of-contents ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#table-of-contents ul ul { /* Style for nested lists (sections) */
+  list-style: circle; /* Or square, or none */
+  padding-left: 20px; /* Indent sections */
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#table-of-contents li {
+  margin-bottom: 5px;
+}
+
+#table-of-contents a {
+  text-decoration: none;
+  color: #333;
+}
+
+#table-of-contents a:hover {
+  text-decoration: underline;
+}
+
+#table-of-contents ul ul {
+  padding-left: 20px; /* Indent nested lists */
+  margin-top: 5px;    /* Add some space above nested list */
+  list-style: circle; /* Use circles for sub-items */
+}
+
+#table-of-contents ul ul li {
+  margin-bottom: 3px; /* Slightly reduce margin for sub-items */
+}
+
+.chapter {
+  margin-bottom: 40px;
+  padding-top: 20px; /* Add padding for anchor links */
+}
+
+.page {
+  margin-bottom: 30px;
+  padding-top: 10px; /* Add padding for anchor links */
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h2 {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+}
+
+h3 {
+  color: #555;
+}
+
+pre {
+  background-color: #eee;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-family: monospace;
+}
+
+code {
+  font-family: monospace;
+}
+
+.image-prompt {
+  background-color: #eef;
+  border-left: 4px solid #aac;
+  padding: 10px;
+  margin-top: 15px;
+  font-style: italic;
+  color: #557;
+  width: 100%;
+  max-width: 170mm; /* A4 width minus margins (210mm - 2*20mm) */
+  display: block;
+  box-sizing: border-box;
+}
+
+.image-prompt::before {
+  content: "Image Idea: ";
+  font-weight: bold;
+}
+
+.image-prompt img, img.image-prompt {
+  width: 100%;
+  max-width: 170mm; /* A4 width minus margins */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Add styles for the 'Did you know?' section */
+.did-you-know {
+  background-color: #eaf6ff; /* Slightly brighter blue */
+  border-left: 5px solid #90c4de; /* Stronger blue border */
+  padding: 12px 18px;
+  margin-top: 20px; /* Increased margin */
+  margin-bottom: 20px; /* Increased margin */
+  font-style: italic; /* Italicize the main text */
+  position: relative; /* Allows absolute positioning for pseudo-elements if needed */
+  border-radius: 4px; /* Slightly rounded corners */
+}
+
+.did-you-know h4 {
+  margin-top: 0;
+  margin-bottom: 8px; /* More space below heading */
+  font-style: normal; /* Keep heading normal style */
+  color: #3a7ca5; /* Darker blue for heading */
+  font-weight: bold; /* Make heading bold */
+  font-size: 1.1em; /* Slightly larger heading */
+}
+
+/* Add a question mark icon before the heading */
+.did-you-know h4::before {
+  content: "❓"; /* Unicode Black Question Mark Ornament */
+  font-weight: bold;
+  color: #3a7ca5; /* Match heading color */
+  margin-right: 8px; /* Space after icon */
+  font-size: 1.2em; /* Make icon slightly larger */
+  vertical-align: middle; /* Align icon nicely */
+}
+
+.did-you-know ul {
+  list-style-type: disc; /* Standard disc bullets */
+  padding-left: 25px; /* More indentation for list */
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #555; /* Slightly softer text color for facts */
+}
+
+.did-you-know li {
+  margin-bottom: 4px; /* Slightly more space between list items */
+  line-height: 1.5; /* Improve readability of list items */
+}
+
+/* Glossary Styles */
+#glossary dl {
+  margin-top: 20px;
+}
+
+#glossary dt {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+#glossary dd {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+/* Print-specific styles for A4 formatting */
+@media print {
+  body {
+    background-color: #fff; /* Ensure white background for printing */
+    font-size: 10pt; /* Adjust font size for print */
+  }
+
+  .book-container {
+    max-width: none; /* Remove max-width for print */
+    margin: 0;
+    padding: 0;
+    box-shadow: none; /* Remove shadow for print */
+    width: 100%; /* Ensure it takes full printable width */
+  }
+
+  .page-container, .chapter, .page, .section {
+    page-break-inside: avoid; /* Try to avoid breaking inside these elements */
+  }
+
+  .front-page, #table-of-contents, .chapter, #glossary, .back-page { /* Added #glossary */
+     page-break-before: always; /* Start these on a new page */
+  }
+
+  /* Use the existing hr.page-break for explicit breaks */
+  hr.page-break {
+    page-break-after: always;
+    border: none; /* Hide the hr line itself in print */
+    height: 0;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid; /* Avoid breaking right after a heading */
+  }
+
+  pre {
+    page-break-inside: avoid; /* Avoid breaking inside code blocks */
+  }
+
+  #table-of-contents ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  #table-of-contents ul ul {
+    padding-left: 15px; /* Adjust indentation for print */
+    list-style: circle;
+  }
+
+  .image-prompt {
+    display: none; /* Hide image prompts in print */
+  }
+
+  .book-cover {
+    width: 100%;
+    max-width: 170mm;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+    box-sizing: border-box;
+    page-break-after: always;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 2cm; /* Standard A4 margins */
+}
